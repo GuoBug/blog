@@ -2,22 +2,24 @@
 layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>{{ site.name }}</title>
- <link href="http://guobug.github.io/bug/atom.xml" rel="self"/>
- <link href="http://guobug.github.io/bug/"/>
+ <link href="http://lhzhang.com/atom.xml" rel="self"/>
+ <link href="http://lhzhang.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>http://guobug.github.io/bug/</id>
+ <id>http://lhzhang.com/</id>
  <author>
-   <name>GuoBug</name>
+   <name>Linghua Zhang</name>
+   <email>linghua.zhang@me.com</email>
  </author>
 
  {% for post in site.posts limit:10 %}
  <entry>
    <title>{{ post.title | xml_escape }}</title>
-   <link href="http://guobug.github.io/bug/{{ post.url }}"/>
+   <link href="http://lhzhang.com{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
-   {% if post.guid %}<id>{{ post.guid }}</id>{% else %}<id>http://guobug.github.io/bug/{{ post.id }}</id>{% endif %}
+   {% if post.guid %}<id>{{ post.guid }}</id>{% else %}<id>http://lhzhang.com{{ post.id }}</id>{% endif %}
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
